@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --coolgray: #9699AB;
+  --lightgray: #D6D9E6;
+  --magnolia: #F0F6FF;
+  --alabaster: #FAFBFF;
+  --marineblue: #02295A;
+  --purpleblue: #473DFF;
+  --pastelblue: #ADBEFF;
+  --lightblue: #BFE2FD;
+  --strawberryred: #ED3548;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: white;
+  color: var(--marineblue);
+  overflow-x: hidden;
+}
+
+@layer components{
+  /*Spacings section*/
+  .centered {
+    @apply flex flex-row justify-center items-center
+  }
+
+  .centered-col {
+      @apply flex flex-col justify-center items-center
+  }
+
+  .spaced {
+      @apply flex flex-row justify-between items-center
+  }
+
+  .spaced-col {
+      @apply flex flex-col justify-between items-center
+  }
+
+  .evenly {
+      @apply flex flex-row justify-evenly items-center
+  }
+
+  .evenly-col {
+    @apply flex flex-col justify-evenly items-center
+  }
+
+  /*Transitions section*/
+  .easy-transition {
+    @apply duration-300 ease-in-out hover:cursor-pointer
+  }
+
+  .slow-transition {
+    @apply duration-700 ease-in-out hover:cursor-pointer
+  }
+
+  .slugish-transition {
+    @apply duration-1000 ease-in-out hover:cursor-pointer
+  }
+
+  .bg-img {
+    @apply bg-center bg-no-repeat bg-contain
+  }
+
+  .invisilink {
+      @apply relative collapse
+  }
+
+  .navbar-link {
+    @apply border-2 py-1 px-2 md:py-2 md:px-4 text-xl
+  }
+
+  /*Containers section*/
+  .block-container {
+      @apply w-[50vw] min-h-[50vh]
+  }
+
+  .page-container {
+    @apply min-h-screen w-screen
+  }
+
+  .content-container {
+    @apply h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)] centered-col md:centered w-full bg-white mt-16 md:mt-24
+  }
+
+  /*Main Section*/
+  .responsive-wrapper {
+    @apply xs:w-screen xs:h-[calc(100vh-6rem)] xs:spaced-col md:w-11/12 md:h-5/6 md:p-4 md:grid md:grid-cols-[1fr_2fr] md:grid-rows-[2fr_1fr] md:max-w-screen-lg gap-x-6 md:bg-white
+  }
+
+  .sidebar {
+    @apply bg-cover bg-img xs:centered xs:bg-sidebar-mobile xs:w-full xs:h-[20rem] md:bg-sidebar-desktop md:h-full md:w-56 md:rounded-lg md:row-span-2 md:flex md:flex-col
+  }
+
+  /*Slides section*/
+  .slide-container {
+    @apply xs:-translate-y-4 max-w-xl rounded-xl xs:w-11/12 md:w-full z-50 col-start-2 row-start-1 flex justify-start xs:p-4 sm:p-8 md:p-0 bg-white xs:shadow-lg md:shadow-none md:translate-y-20
+  }
+
+  .slide {
+    @apply bg-white h-40 w-full flex flex-col space-y-2
+  }
+
+  .slide-controls {
+    @apply w-screen h-20 md:max-w-xl py-8 xs:px-8 md:px-0 bg-white md:w-full spaced col-start-2 row-start-2
+  }
+
+  /*Buttons section*/
+  .stepper-button {
+    @apply w-28 px-4 py-2 rounded-md hover:cursor-pointer
+  }
+
+  .next-button {
+    @apply text-white stepper-button bg-marineblue disabled:hidden hover:bg-purpleblue hover:text-white easy-transition
+  }
+
+  .back-button {
+    @apply stepper-button text-coolgray hover:bg-neutral-100 hover:text-marineblue easy-transition
+  }
+
+  .confirm-button {
+    @apply text-white stepper-button bg-purpleblue disabled:hidden hover:bg-green-500 easy-transition
+  }
+
+  /*Form section*/
+  .form-label {
+    @apply text-marineblue font-medium xs:text-[12px] md:text-[17px]
+  }
+
+  .form-input {
+    @apply rounded-md border-2 border-lightgray py-2 px-4 hover:bg-neutral-100 easy-transition text-black 
+  }
+
+  .form-button {
+    @apply px-6 py-2 font-semibold rounded-lg bg-silver text-primary hover:bg-white easy-transition disabled:hover:cursor-not-allowed disabled:bg-primary easy-transition
+  }
+
+  /*Dots section*/
+  .dot-container {
+    @apply z-50 p-8 xs:w-[22rem] md:h-3/5 md:w-4/5 spaced xs:flex-row md:flex-col md:-translate-y-12
+  }
+
+  .dot-indicator {
+    @apply w-9 h-9 bg-blue-700 border font-bold text-white border-white rounded-full centered
+  }
+
+  .dot-active {
+    @apply bg-lightblue border-lightblue text-marineblue
+  }
+
+  /*Toggle section*/
+  .toggle-dot {
+    @apply w-[.85rem] h-[.85rem] rounded-full bg-white hover:bg-neutral-100
+  }
+
+  .toggle-holder {
+    @apply bg-marineblue rounded-full w-10 h-6 flex items-center p-1
+  }
+
+  .checkmark {
+    @apply w-8 h-8 centered rounded-md border-2 border-lightgray easy-transition
+  }
+
+  /*Card section*/
+  .card {
+    @apply min-w-[8rem] xs:w-full md:w-[11vw] h-20 md:h-48 border-2 border-lightgray p-2 rounded-lg flex flex-row md:spaced-col md:items-start md:space-y-8 items-center space-x-4 easy-transition hover:bg-neutral-100
+  }
+
+  .card-radio {
+    @apply w-full min-h-[4.5rem] h-auto items-center space-x-4 easy-transition hover:bg-neutral-100 rounded-lg spaced border-2 p-4
+  }
+  
+  .card-icon {
+    @apply w-12 h-12 rounded-full bg-center bg-cover bg-no-repeat
+  }
+}
